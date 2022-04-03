@@ -12,12 +12,15 @@ function App() {
   const url = `http://api.weatherapi.com/v1/forecast.json?key=97135f007573481bb55223757223103&q=${location}&lang=es`
 
   const searchLocation = async (e) => {
-    if (e.key === 'Enter') {
-      await axios.get(url).then((response) => {
-        setData(response.data)
-        console.log(response.data)
-      })
-      setLocation('')
+    try {
+      if (e.key === 'Enter') {
+        await axios.get(url).then((response) => {
+          setData(response.data)
+        })
+        setLocation('')
+      }
+    } catch (err) {
+      alert('ingrese una locación válida')
     }
   }
 
@@ -62,7 +65,7 @@ function App() {
 
 
   return (
-    <div className='app'>
+    <div className={(data.current) ? ((data.current.temp_c < 20) ? 'app cold' : 'app') : 'app'}>
 
       <div className='bar'>
         To Wear
@@ -74,7 +77,7 @@ function App() {
           <input
             value={location}
             placeholder='Enter location'
-            onChange={(e) => {setLocation(e.target.value)}}
+            onChange={(e) => { setLocation(e.target.value) }}
             onKeyPress={searchLocation}
             type="text"
           />
@@ -90,7 +93,7 @@ function App() {
 
         {data.current !== undefined &&
           <div className='wear'>
-            <IconContext.Provider value={{ color: "white", size: "128" }}>
+            <IconContext.Provider value={{ color: "#F7CCAC", size: "128" }}>
               {firsIcon()}
               {secondIcon()}
             </IconContext.Provider>
