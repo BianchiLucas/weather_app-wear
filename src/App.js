@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { GiPoloShirt, GiBilledCap, GiUmbrella, GiSnowflake1, GiMonclerJacket, GiLargeDress, GiHoodie, GiWinterGloves, GiArmoredPants } from 'react-icons/gi'
 import { IconContext } from "react-icons"
-import axios from 'axios';
+import axios from 'axios'
 
 function App() {
 
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
 
-  //const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},uk&APPID=b2a8763304dfe7e9849478f6e4413e53`
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=97135f007573481bb55223757223103&q=${location}&lang=es`
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&lang=es`
 
   const searchLocation = async (e) => {
     try {
