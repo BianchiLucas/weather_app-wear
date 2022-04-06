@@ -10,7 +10,7 @@ function App() {
   const [location, setLocation] = useState('')
   const [openModal, setOpenModal] = useState(false)
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&lang=es`
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&lang=es`
 
   const searchLocation = async (e) => {
     try {
