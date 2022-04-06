@@ -131,7 +131,7 @@ h1 {
 
 .modalContainer {
   width: 25rem;
-  height: 12vh;
+  height: 7rem;
   border-radius: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
@@ -158,7 +158,7 @@ h1 {
   align-items: center;
 }
 
-@media all and (min-width: 780px) {
+@media all and (min-width: 860px) and (orientation: landscape) {
   .app {
     width: 35%;
     height: 90vh;
