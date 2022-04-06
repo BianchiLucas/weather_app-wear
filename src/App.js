@@ -93,7 +93,7 @@ function App() {
 
           {data.current !== undefined &&
             <div className='wear'>
-              <IconContext.Provider value={{ color: "#F7CCAC", size: "7rem" }}>
+              <IconContext.Provider value={{ color: "#F7CCAC", size: "7em" }}>
                 {firsIcon()}
                 {secondIcon()}
               </IconContext.Provider>
